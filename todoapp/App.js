@@ -19,7 +19,7 @@ export default class App extends React.Component {
   }
 
   handleAddItem = () => {
-    this.setState({ todos: [...this.state.todos, this.state.text] });
+    this.setState({ todos: [...this.state.todos, this.state.text], text: "" });
   };
 
   render() {
@@ -41,11 +41,9 @@ export default class App extends React.Component {
           </TouchableOpacity>
         </View>
         <View style={styles.todoListContainer}>
-          <Text>
-            {this.state.todos.length === 0
-              ? "No todo list "
-              : "Todo list available"}{" "}
-          </Text>
+          {this.state.todos.length === 0 ? (
+            <Text>No todo list available</Text>
+          ) : null}
         </View>
       </View>
     );
